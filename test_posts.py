@@ -50,3 +50,7 @@ def test_create_post():
     assert data["userId"] == payload["userId"]
     assert "id" in data
     
+#Test that API returns  404 for nonexisting post
+def test_get_non_existing_post():
+    response = requests.get(f"{BASE_URL}/posts/9999")
+    assert response.status_code == 404
