@@ -14,6 +14,9 @@ https://jsonplaceholder.typicode.com
 - Get a list of posts
 - Get comments for a post with ID 1
 - Create a new post
+- Get nonexisting post and check 404 response
+- Update an existing post
+- Delete a post
 
 ## Tools used
 

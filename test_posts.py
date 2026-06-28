@@ -54,3 +54,23 @@ def test_create_post():
 def test_get_non_existing_post():
     response = requests.get(f"{BASE_URL}/posts/9999")
     assert response.status_code == 404
+
+#Test that API updates existing post
+def test_update_post():
+    payload = {
+        "title": "Bauskas alus",
+        "body": "alus",
+        "userId" : 1
+    }
+    response = requests.put(f"{BASE_URL}/posts/1", json=payload)
+    data = response.json()
+    assert response.status_code == 200
+    assert data["title"] == payload["title"]
+    assert data["body"] == payload["body"]
+    assert data["userId"] == payload["userId"]
+    assert data["id"] == 1
+
+#Test that API deletes a post
+def test_delete_post():
+    response = requests.delete(f"{BASE_URL}/posts/1")
+    assert response.status_code == 200
